@@ -1,26 +1,17 @@
 ---
-ansible:
-  ansiblecfg_defaults:
-    retry_files_enabled: False
 dependency:
   name: galaxy
 driver:
-  name: vagrant
-vagrant:
-  platforms:
-    - name: zesty
-      box: ubuntu/zesty64
-  providers:
-    - name: virtualbox
-      type: virtualbox
-      options:
-        memory: 512
-        cpus: 2
-  instances:
-    - name: platform
-      host_vars:
-        NET_IFACE_NAME: eno1
-      ansible_groups:
-        - group1
+  name: docker
+platforms:
+  - name: foo
+    # keep this here to avoid regressions with molecule substitutions
+    image: ${MOLECULE_IMAGE:-quay.io/centos/centos:stream8}
+    # while above image is already pre-build we want to force molecule
+    # to rebuild it, just to detect a possible regression on that area
+    # the pre_build=true case is already covered by the dynamic test
+    pre_build_image: false
+provisioner:
+  name: ansible
 verifier:
-  name: testinfra
+  name: ansible
