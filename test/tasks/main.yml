@@ -1,4 +1,4 @@
 ---
 
 - name: hey
-  ansible.builtin.shell: cat ~/molecule/test/meta/main.yml
+  ansible.builtin.shell: whoami
