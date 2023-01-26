@@ -2,15 +2,10 @@
 dependency:
   name: galaxy
 driver:
-  name: docker
-lint: |
-  set -e
-  yamllint .
-  ansible-lint
+  name: delegated
 platforms:
   - name: instance
-    image: geerlingguy/docker-centos8-ansible:latest
-    command: ""
+    image: registry.access.redhat.com/ubi8/ubi:latest
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
