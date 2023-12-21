@@ -12,16 +12,15 @@ on:
         default: 'linux'
         type: choice
         options:
-        - linux
-        - windows
-     jenkins:
-       required: false
-       type: choice
-       options:
-       - linux_baseline
-       - linux_oracle_db
-       - linux_db2_db
-       
+          - linux
+          - windows
+      jenkins:
+        required: false
+        type: choice
+        options:
+         - linux_baseline
+         - linux_oracle_db
+         - linux_db2_db
       tags:
         description: 'Test scenario tags'
         required: false
