@@ -6,15 +6,22 @@ name: CI
 on:
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'
+      vms:
+        description: 'create vm'
         required: true
-        default: 'warning'
+        default: 'linux'
         type: choice
         options:
-        - info
-        - warning
-        - debug
+        - linux
+        - windows
+     jenkins:
+       required: false
+       type: choice
+       options:
+       - linux_baseline
+       - linux_oracle_db
+       - linux_db2_db
+       
       tags:
         description: 'Test scenario tags'
         required: false
