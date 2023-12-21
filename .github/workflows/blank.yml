@@ -42,11 +42,8 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run:  |
-     
-            if [[ ${github.actions.input.vms == "linux"}]]
-            then
+            if [[ ${github.actions.input.vms == "linux"}]]; then
               echo ${github.actions.input.vms
-            
             else
               echo "yo"
             fi
