@@ -43,7 +43,8 @@ jobs:
       - name: Run a one-line script
         run:  |
      
-            if [[ ${github.actions.input.vms ]]; then
+            if [[ ${github.actions.input.vms == "linux"]]
+            then
               echo ${github.actions.input.vms
             
             else
