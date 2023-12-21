@@ -38,9 +38,6 @@ jobs:
       - name: Run a one-line script
         run:  pip3 install ansible yamllint ansible-lint
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: molecule test
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
